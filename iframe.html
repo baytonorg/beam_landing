@@ -1,0 +1,17 @@
+<html lang="en">
+<body>
+    <script src="https://apis.google.com/js/api.js"></script>
+<div id="container" style="width: 1000px; height: 1000px"></div>
+<script>
+  gapi.load('gapi.iframes', function() {
+    var options = {
+      'url': 'https://play.google.com/managed/mcm?token=web_token&packageName=app_package_name',
+      'where': document.getElementById('container'),
+      'attributes': { style: 'height:1000px', scrolling: 'yes'}
+    }
+
+    var iframe = gapi.iframes.getContext().openChild(options);
+  });
+</script>
+</body>
+</html>
