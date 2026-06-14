@@ -48,6 +48,11 @@ export default async (req) => {
   if (!OUTPOST_URL || !OUTPOST_API_KEY)
     return json({ error: 'The form is not configured yet. Please email jason@bayton.org.' }, 500);
 
+  // Be tolerant of OUTPOST_URL set without a scheme or with a trailing slash.
+  let base = OUTPOST_URL.trim();
+  if (!/^https?:\/\//i.test(base)) base = 'https://' + base;
+  base = base.replace(/\/+$/, '');
+
   const rows = [
     `<p><strong>Name:</strong> ${esc(name)}</p>`,
     `<p><strong>Email:</strong> ${esc(email)}</p>`,
@@ -64,7 +69,7 @@ export default async (req) => {
 
   let res;
   try {
-    res = await fetch(`${OUTPOST_URL.replace(/\/$/, '')}/mail/send`, {
+    res = await fetch(`${base}/mail/send`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${OUTPOST_API_KEY}`,
@@ -80,11 +85,15 @@ export default async (req) => {
         headers: { 'X-Form-Source': 'beam-landing' },
       }),
     });
-  } catch {
+  } catch (e) {
+    console.error('Outpost fetch failed:', e && e.name, '-', e && e.message);
     return json({ error: 'Could not reach the mail service. Please try again shortly.' }, 502);
   }
 
   if (!res.ok) {
+    let detail = '';
+    try { detail = (await res.text()).slice(0, 500); } catch {}
+    console.error('Outpost rejected send:', res.status, '-', detail);
     return json({ error: 'The mail service rejected the message. Please try again or email jason@bayton.org.' }, 502);
   }
 
