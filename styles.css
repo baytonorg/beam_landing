@@ -130,6 +130,7 @@
   /* Cards */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
   .cards.two{grid-template-columns:1fr 1fr}
+  .cards.four{grid-template-columns:repeat(4,1fr)}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem;
     transition:transform .15s var(--ease),border-color .15s}
   .card:hover{transform:translateY(-3px);border-color:var(--line-2)}
@@ -238,7 +239,7 @@
   @media (max-width:920px){
     .hero-grid,.band-grid,.pricing-grid{grid-template-columns:1fr}
     .hero-visual{order:-1}
-    .cards{grid-template-columns:1fr 1fr}
+    .cards,.cards.four{grid-template-columns:1fr 1fr}
     .compare{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
   }
@@ -253,7 +254,7 @@
   }
   @media (max-width:640px){
     body{font-size:17px}
-    .cards,.cards.two,.steps{grid-template-columns:1fr}
+    .cards,.cards.two,.cards.four,.steps{grid-template-columns:1fr}
     section{padding:4rem 0}
   }
   @media (prefers-reduced-motion:reduce){
