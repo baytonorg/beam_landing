@@ -42,7 +42,7 @@
     border-bottom:1px solid var(--line)}
   .nav-inner{max-width:var(--max);margin:0 auto;padding:.85rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
   .brand{display:flex;align-items:center;gap:.7rem}
-  .brand img{height:26px;width:auto;display:block}
+  .brand img{height:36px;width:auto;display:block}
   .brand .by{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--ink-faint);border-left:1px solid var(--line-2);padding-left:.7rem}
   .nav-links{display:flex;gap:.2rem;margin-left:auto;align-items:center}
@@ -244,6 +244,19 @@
   .cf-msg.ok strong{color:var(--ink)}
   .cf-msg.err{background:rgba(220,53,69,.1);border:1px solid rgba(220,53,69,.35);color:#ff8a8a}
   @media (max-width:560px){.contact-form .row{grid-template-columns:1fr;gap:0}}
+
+  /* Success state — spinning Bayton swirl-check (matches 11ty contact-success) */
+  .cf-success{display:none;flex-direction:column;align-items:center;text-align:center;gap:.5rem;
+    max-width:560px;margin:2.6rem auto 0;animation:cfRise .5s var(--ease) both}
+  .cf-success.show{display:flex}
+  .cf-check{width:148px;margin-bottom:.6rem}
+  .cf-check svg{width:100%;height:auto;display:block}
+  .cf-check .swirl-spin{animation:spinPause 6s infinite ease-in-out;transform-box:fill-box;transform-origin:center}
+  .cf-success h3{font-size:1.7rem;font-weight:700}
+  .cf-success p{color:var(--ink-dim);font-size:1.08rem;max-width:42ch}
+  @keyframes spinPause{0%{transform:rotate(0)}20%{transform:rotate(180deg)}40%{transform:rotate(360deg)}100%{transform:rotate(360deg)}}
+  @keyframes cfRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.cf-check .swirl-spin{animation:none}.cf-success{animation:none}}
 
   /* Footer */
   footer{border-top:1px solid var(--line);padding:3rem 0;background:var(--canvas-2)}
