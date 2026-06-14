@@ -1,3 +1,4 @@
-/terms       /terms/index.html   200
-/terms/      /terms/index.html   200
-/*           /                   301
+/api/contact   /.netlify/functions/contact   200
+/terms         /terms/index.html             200
+/terms/        /terms/index.html             200
+/*             /                             301

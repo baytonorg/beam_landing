@@ -32,7 +32,7 @@
       <a class="link" href="#how">How it works</a>
       <a class="link" href="#pricing">Pricing</a>
       <a class="link" href="#faq">FAQ</a>
-      <a class="btn btn-primary nav-cta" href="https://bayton.org/support/">Get started</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Get started</a>
     </nav>
     <button class="menu-btn" id="menubtn" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
@@ -71,7 +71,7 @@
         <h1>Your Android estate,<br><span class="accent">fully managed.</span></h1>
         <p class="lede">BEAM is the managed device service from BAYTON - running the enrolment, policy, security and day-to-day admin of your Android &amp; ChromeOS estate, so your team never has to touch a management console.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://bayton.org/support/">Get started
+          <a class="btn btn-primary" href="#contact">Get started
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-ghost" href="#coverage">See what's covered</a>
         </div>
@@ -307,7 +307,7 @@
             <li><span class="tick">✓</span> Scales to any estate size</li>
             <li><span class="tick">✓</span> Enhanced support available on request</li>
           </ul>
-          <a class="btn btn-primary" href="https://bayton.org/support/">Get started</a>
+          <a class="btn btn-primary" href="#contact">Get started</a>
         </div>
 
         <div class="calc reveal" id="calc">
@@ -365,21 +365,55 @@
         </details>
         <details>
           <summary>What does it cost and how long am I tied in?<span class="chev">+</span></summary>
-          <p>£0.60 per device per month is the standard rate, on a 24-month term billed annually (£7.20 per device). Shorter terms - 12-month and monthly rolling - cost a little more, while longer commitments of 36 to 60 months bring it down to £0.51. Enhanced support is available on request. <a href="https://bayton.org/support/">Get started</a> and the price is sized to your estate.</p>
+          <p>£0.60 per device per month is the standard rate, on a 24-month term billed annually (£7.20 per device). Shorter terms - 12-month and monthly rolling - cost a little more, while longer commitments of 36 to 60 months bring it down to £0.51. Enhanced support is available on request. <a href="#contact">Get started</a> and the price is sized to your estate.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-band">
+  <section class="cta-band" id="contact">
     <div class="wrap">
+      <span class="eyebrow">Get started</span>
       <h2>Your estate, off your plate.</h2>
       <p>Tell BAYTON about your devices and the rest is taken care of - onboarding, security and the day-to-day, handled for you.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://bayton.org/support/">Get started</a>
-        <a class="btn btn-ghost" href="https://bayton.org/contact/">Talk to BAYTON</a>
-      </div>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cf-email">Work email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="cf-org">Organisation</label>
+            <input id="cf-org" name="organisation" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="cf-estate">Estate size</label>
+            <select id="cf-estate" name="estate">
+              <option value="">Select...</option>
+              <option>1-50 devices</option>
+              <option>50-250 devices</option>
+              <option>250-1,000 devices</option>
+              <option>1,000+ devices</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-message">How can BAYTON help?</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+        <input type="text" name="website" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cf-actions">
+          <button type="submit" class="btn btn-primary">Send enquiry</button>
+        </div>
+        <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -513,6 +547,45 @@
         rows.forEach(function(r){ r.style.animation = 'none'; void r.offsetWidth; r.style.animation = ''; });
       });
     }
+  })();
+
+  // Contact form -> /api/contact (Netlify function -> Outpost)
+  (function(){
+    var form = document.getElementById('contact-form');
+    if(!form) return;
+    var msg = document.getElementById('cf-msg');
+    var btn = form.querySelector('button[type=submit]');
+    function show(kind, text){ msg.className = 'cf-msg show ' + kind; msg.innerHTML = text; }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var f = form.elements;
+      var data = {
+        name: f['name'].value.trim(),
+        email: f['email'].value.trim(),
+        organisation: f['organisation'].value.trim(),
+        estate: f['estate'].value,
+        message: f['message'].value.trim(),
+        website: f['website'].value
+      };
+      if(!data.name || !data.email || !data.message){
+        show('err', 'Please complete the name, email and message fields.'); return;
+      }
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...'; msg.className = 'cf-msg';
+      fetch('/api/contact', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+      }).then(function(r){ return r.json().then(function(j){ return { ok:r.ok, body:j }; }); })
+        .then(function(res){
+          if(res.ok && res.body && res.body.ok){
+            form.reset();
+            show('ok', "<strong>Thanks - your enquiry is on its way.</strong> BAYTON will be in touch shortly.");
+          } else {
+            show('err', (res.body && res.body.error) || 'Something went wrong. Please try again, or email jason@bayton.org.');
+          }
+        }).catch(function(){
+          show('err', 'Something went wrong. Please try again, or email jason@bayton.org.');
+        }).finally(function(){ btn.disabled = false; btn.textContent = label; });
+    });
   })();
 </script>
 </body>
