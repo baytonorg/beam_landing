@@ -40,13 +40,13 @@
   header.nav{position:sticky;top:0;z-index:40;
     background:rgba(19,17,16,.78);backdrop-filter:blur(14px) saturate(140%);
     border-bottom:1px solid var(--line)}
-  .nav-inner{max-width:var(--max);margin:0 auto;padding:.85rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:.45rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
   .brand{display:flex;align-items:center;gap:.7rem}
-  .brand img{height:36px;width:auto;display:block}
+  .brand img{height:70px;width:auto;display:block}
   .brand .by{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--ink-faint);border-left:1px solid var(--line-2);padding-left:.7rem}
   .nav-links{display:flex;gap:.2rem;margin-left:auto;align-items:center}
-  .nav-links a.link{position:relative;font-size:.92rem;color:var(--ink-dim);padding:.5rem .8rem;border-radius:9px;transition:color .15s,background .15s}
+  .nav-links a.link{position:relative;white-space:nowrap;font-size:.92rem;color:var(--ink-dim);padding:.5rem .8rem;border-radius:9px;transition:color .15s,background .15s}
   .nav-links a.link:hover{color:var(--ink);background:var(--surface)}
   .nav-links a.link.active{color:var(--ink)}
   .nav-links a.link.active::after{content:"";position:absolute;left:.8rem;right:.8rem;bottom:.2rem;height:2px;background:var(--orange);border-radius:2px}
@@ -161,6 +161,25 @@
   .step .num{font-family:var(--display);font-weight:800;font-size:2.4rem;color:var(--orange);line-height:1}
   .step h3{font-size:1.1rem;margin-top:.7rem}
   .step p{color:var(--ink-dim);margin-top:.5rem;font-size:.95rem}
+
+  /* Support bento */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+  .bento .tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem;
+    display:flex;flex-direction:column;transition:transform .15s var(--ease),border-color .15s}
+  .bento .tile:hover{transform:translateY(-3px);border-color:var(--line-2)}
+  .bento .tile.lg{grid-column:span 2;grid-row:span 2;
+    background:linear-gradient(160deg,rgba(255,69,0,.10),var(--surface-2));border-color:rgba(255,106,51,.30)}
+  .bento .tile.wide{grid-column:span 2}
+  .bento .ic{width:42px;height:42px;border-radius:11px;background:rgba(255,69,0,.12);color:var(--orange);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+  .bento .ic svg{width:22px;height:22px}
+  .bento h3{font-size:1.18rem;font-weight:700}
+  .bento .tile.lg h3{font-size:1.5rem}
+  .bento p{color:var(--ink-dim);margin-top:.6rem;font-size:.98rem}
+  .bento .tile.lg p{font-size:1.05rem;max-width:34ch}
+  .bento .tile.feature{grid-column:1 / -1;background:linear-gradient(160deg,rgba(255,69,0,.10),var(--surface-2));border-color:rgba(255,106,51,.30)}
+  .bento .tile.feature h3{font-size:1.4rem}
+  .bento .tile.feature p{margin-top:.7rem;max-width:78ch}
 
   /* Pricing + calculator */
   .pricing-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.6rem;margin-top:3rem;align-items:stretch}
@@ -284,8 +303,11 @@
     .cards,.cards.four{grid-template-columns:1fr 1fr}
     .compare{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .bento .tile.lg{grid-column:span 2;grid-row:auto}
+    .bento .tile.wide{grid-column:span 2}
   }
-  @media (max-width:880px){
+  @media (max-width:960px){
     .nav-links{display:none}
     .menu-btn{display:block}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
@@ -296,7 +318,10 @@
   }
   @media (max-width:640px){
     body{font-size:17px}
+    .brand img{height:48px}
     .cards,.cards.two,.cards.four,.steps{grid-template-columns:1fr}
+    .bento{grid-template-columns:1fr}
+    .bento .tile.lg,.bento .tile.wide{grid-column:auto;grid-row:auto}
     section{padding:4rem 0}
   }
   @media (prefers-reduced-motion:reduce){
