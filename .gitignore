@@ -1,2 +1,8 @@
 # Local Netlify folder
 .netlify
+
+# Local preview server config
+.claude/
+
+# Internal planning doc (not for the public site)
+SUPPORT-SLA-PLANNING.md

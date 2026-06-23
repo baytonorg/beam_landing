@@ -1,4 +1,6 @@
 /api/contact   /.netlify/functions/contact   200
 /terms         /terms/index.html             200
 /terms/        /terms/index.html             200
+/sla           /sla/index.html               200
+/sla/          /sla/index.html               200
 /*             /                             301
