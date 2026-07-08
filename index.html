@@ -11,9 +11,16 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cdn.bayton.org/assets/beam/beam_sonic_rectangle.svg">
 <meta name="theme-color" content="#131110">
+<link rel="preconnect" href="https://cdn-styles.bayton.org" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Bayton Design (shared fonts, tokens, components), pinned v1.3.0, loaded before app CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn-styles.bayton.org/v1.3.0/styles.css"
+  integrity="sha384-CCTD5/sA4gBE4dOzZ3yhQw6DoLGn4qk5JvulGM37DHAaNVAClff8y3aDCvL7GHB8"
+  crossorigin="anonymous"
+>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -70,9 +77,9 @@
         <h1>Your Android estate,<br><span class="accent">fully managed.</span></h1>
         <p class="lede">BEAM is the Android managed service from BAYTON - running the enrolment, policy, security and day-to-day admin of your Android estate, so your team never has to touch a management console.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact">Get started
+          <a class="btn btn-primary lg" href="#contact">Get started
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-ghost" href="#coverage">See what's covered</a>
+          <a class="btn btn-ghost lg" href="#coverage">See what's covered</a>
         </div>
         <div class="hero-meta">
           <span><span class="dot"></span>£0.80 / device / month</span>
@@ -133,11 +140,11 @@
         <blockquote>Is the thought of managing an estate of Android devices a bit daunting? Leave it with BAYTON.</blockquote>
         <p class="sub">BEAM is the natural continuation of the mobility management BAYTON already provides, drawing on globally renowned Android Enterprise expertise proven across NGOs, education, and global businesses. Rather than buying a console and learning to run it yourself, you hand the estate to BAYTON - and onboarding, offboarding and the day-to-day in between are taken care of.</p>
         <div class="pill-row">
-          <span class="pill">Onboarding</span>
-          <span class="pill">Offboarding</span>
-          <span class="pill">Day-to-day BAU</span>
-          <span class="pill">Defined SLAs</span>
-          <span class="pill">Any estate size</span>
+          <span class="pill lg neutral">Onboarding</span>
+          <span class="pill lg neutral">Offboarding</span>
+          <span class="pill lg neutral">Day-to-day BAU</span>
+          <span class="pill lg neutral">Defined SLAs</span>
+          <span class="pill lg neutral">Any estate size</span>
         </div>
       </div>
       <div>
@@ -154,7 +161,7 @@
   <!-- WHO IT'S FOR -->
   <section id="who">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-title">
         <span class="eyebrow">Who it's for</span>
         <h2>Built for estates that can't afford downtime</h2>
         <p>If your people depend on Android devices to do their jobs, BEAM keeps those devices working around the clock.</p>
@@ -164,25 +171,25 @@
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
           <h3>Frontline &amp; field teams</h3>
           <p>Handsets and rugged devices in the field, locked to the apps the job needs and recoverable if one goes missing.</p>
-          <span class="tag">Shared &amp; assigned</span>
+          <span class="tag micro outline">Shared &amp; assigned</span>
         </div>
         <div class="card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 21h18M8 17v4M16 17v4"/></svg></div>
           <h3>Retail &amp; kiosk</h3>
           <p>Single-purpose tablets and point-of-sale devices that stay on-task - no wandering off into settings or the open web.</p>
-          <span class="tag">Kiosk &amp; lockdown</span>
+          <span class="tag micro outline">Kiosk &amp; lockdown</span>
         </div>
         <div class="card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
           <h3>Logistics &amp; transport</h3>
           <p>Scanners and in-cab devices spread across sites and vehicles, managed centrally and updated without recalling a thing.</p>
-          <span class="tag">Distributed estate</span>
+          <span class="tag micro outline">Distributed estate</span>
         </div>
         <div class="card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>Regulated &amp; NGO</h3>
           <p>Where compliance and a clear audit trail matter, every action is logged and reportable - wherever your people are working.</p>
-          <span class="tag">Audit-ready</span>
+          <span class="tag micro outline">Audit-ready</span>
         </div>
       </div>
     </div>
@@ -191,43 +198,43 @@
   <!-- COVERAGE -->
   <section id="coverage" class="band">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-title">
         <span class="eyebrow">What's covered</span>
         <h2>Everything an estate needs</h2>
         <p>The full lifecycle of enterprise Android, managed end to end. These are the things BAYTON takes off your plate.</p>
       </div>
       <div class="bento">
-        <div class="tile wide reveal">
+        <div class="bento-tile span-2 reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17.5 14v7"/></svg></div>
           <h3>Enrolment &amp; onboarding</h3>
           <p>BAYTON configures the enrolment tooling (supplied separately) - Android Zero-touch, Samsung Knox Mobile Enrolment, Zebra StageNow and more - so your devices are ready to enrol the moment they're switched on.</p>
         </div>
-        <div class="tile reveal">
+        <div class="bento-tile reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <h3>Policy &amp; compliance</h3>
           <p>BAYTON designs, applies and enforces the right policies per group of devices, and keeps them compliant as your needs change.</p>
         </div>
-        <div class="tile reveal">
+        <div class="bento-tile reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="M7 9l2 2 4-4"/></svg></div>
           <h3>App management</h3>
           <p>The apps your teams need, deployed and restricted through managed Google Play or direct APK deployment - installed, updated and managed in one place.</p>
         </div>
-        <div class="tile reveal">
+        <div class="bento-tile reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
           <h3>Security actions</h3>
           <p>Lock, wipe, locate, push ESIM, lost-mode, and password reset on demand. A device goes missing, you flag it, it's handled in minutes.</p>
         </div>
-        <div class="tile reveal">
+        <div class="bento-tile reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></div>
           <h3>Visibility &amp; audit</h3>
           <p>Device status, location history and a full audit trail of every action, available to you whenever you want a view.</p>
         </div>
-        <div class="tile wide reveal">
+        <div class="bento-tile span-2 reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
           <h3>Automation &amp; workflows</h3>
           <p>Routine responses - on a schedule or triggered by a device event - set up to run themselves, so nothing waits on a human.</p>
         </div>
-        <div class="tile feature reveal">
+        <div class="bento-tile span-full highlight reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 16a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2z"/><path d="M3 16a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z"/><path d="M18 18v1a3 3 0 0 1-3 3h-2"/></svg></div>
           <h3>Support &amp; troubleshooting</h3>
           <p>No estate runs entirely without issues. When one arises, it's met by some of the most respected Android Enterprise experts in the industry - SLA-backed, and with the depth of experience to understand what's really going on and put it right.</p>
@@ -239,7 +246,7 @@
   <!-- COMPARISON -->
   <section id="compare">
     <div class="wrap">
-      <div class="section-head center">
+      <div class="section-title center">
         <span class="eyebrow">Why managed</span>
         <h2>The difference is who does the work</h2>
         <p>The same powerful management, two very different days. One of them isn't yours to worry about.</p>
@@ -278,7 +285,7 @@
   <!-- HOW -->
   <section id="how">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-title">
         <span class="eyebrow">How it works</span>
         <h2>Hand over the estate in four steps</h2>
         <p>Getting started is a conversation, not a procurement project.</p>
@@ -295,24 +302,24 @@
   <!-- PRICING -->
   <section id="pricing" class="band">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-title">
         <span class="eyebrow">Pricing</span>
         <h2>Simple, per-device, licence included</h2>
         <p>One predictable rate per device, per month. The management licence is part of it - there's nothing else to buy. The longer you commit, the lower the rate.</p>
       </div>
       <div class="pricing-grid">
-        <div class="price-card reveal">
+        <div class="price-card hero reveal">
           <span class="from">Standard rate</span>
           <div class="price"><span class="big">£0.80</span><span class="per">/ device / month</span></div>
           <p class="price-note">£0.80 is the standard rate, on a 24-month term billed annually at £9.60 per device. Monthly and 12-month terms cost a little more; 36 to 60-month commitments bring it down to £0.68.</p>
           <ul class="incl">
-            <li><span class="tick">✓</span> Android device management licence included</li>
-            <li><span class="tick">✓</span> Onboarding, offboarding &amp; day-to-day BAU</li>
-            <li><span class="tick">✓</span> <a href="/sla">Defined SLA commitments</a></li>
-            <li><span class="tick">✓</span> Scales to any estate size</li>
-            <li><span class="tick">✓</span> <a href="/sla">Enhanced support</a> available on request</li>
+            <li><span class="feature-marker">✓</span> Android device management licence included</li>
+            <li><span class="feature-marker">✓</span> Onboarding, offboarding &amp; day-to-day BAU</li>
+            <li><span class="feature-marker">✓</span> <a href="/sla">Defined SLA commitments</a></li>
+            <li><span class="feature-marker">✓</span> Scales to any estate size</li>
+            <li><span class="feature-marker">✓</span> <a href="/sla">Enhanced support</a> available on request</li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Get started</a>
+          <a class="btn btn-primary lg" href="#contact">Get started</a>
         </div>
 
         <div class="calc reveal" id="calc">
@@ -343,7 +350,7 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-title">
         <span class="eyebrow">FAQ</span>
         <h2>Questions, answered</h2>
       </div>
@@ -419,7 +426,7 @@
         </div>
         <input type="text" name="website" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="cf-actions">
-          <button type="submit" class="btn btn-primary">Send enquiry</button>
+          <button type="submit" class="btn btn-primary lg">Send enquiry</button>
         </div>
         <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
       </form>
