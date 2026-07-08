@@ -176,6 +176,9 @@
   /* scoped to out-specify DS's .price-card ul (which forces display:grid) */
   .price-card .incl{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-direction:column;gap:.8rem}
   .incl li{display:flex;align-items:flex-start;gap:.7rem;font-size:1rem}
+  /* centre DS .feature-marker (18px box) on the first text line, matching the
+     old text-tick alignment (top-aligned in a taller line otherwise sits high) */
+  .incl li .feature-marker{margin-top:.25rem}
   .price-card .btn{margin-top:2rem;width:100%;justify-content:center}
 
   /* Calc container now uses DS .surface-card; keep flex column so .calc-out can
