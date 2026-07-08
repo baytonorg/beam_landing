@@ -178,16 +178,12 @@
   .incl li{display:flex;align-items:flex-start;gap:.7rem;font-size:1rem}
   .price-card .btn{margin-top:2rem;width:100%;justify-content:center}
 
-  .calc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:2rem;display:flex;flex-direction:column}
+  /* Calc container now uses DS .surface-card; keep flex column so .calc-out can
+     push to the bottom. Eyebrow uses DS .eyebrow; the bar uses DS .input-range. */
+  .calc{display:flex;flex-direction:column}
   .calc h3{font-size:1.2rem}
-  .calc .ch{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2)}
   .calc label{display:block;font-size:.85rem;color:var(--ink-dim);margin:1.4rem 0 .5rem}
   .calc .cnt{font-family:var(--display);font-weight:800;color:var(--ink);font-size:1.05rem;float:right}
-  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;
-    background:linear-gradient(90deg,var(--accent) 0%,var(--accent) var(--fill,20%),var(--surface-2) var(--fill,20%),var(--surface-2) 100%);outline:none}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;
-    background:var(--accent);border:3px solid var(--canvas);cursor:pointer;box-shadow:0 0 0 1px var(--accent)}
-  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--canvas);cursor:pointer}
   .terms{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
   .term{flex:1;min-width:54px;text-align:center;font-family:var(--mono);font-size:.8rem;color:var(--ink-dim);
     background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:.55rem .3rem;cursor:pointer;transition:.15s}
