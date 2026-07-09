@@ -27,9 +27,9 @@
   /* Scroll progress */
   #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent-lo),var(--accent),var(--accent-2));z-index:60;transition:width .1s linear}
 
-  /* Buttons now use DS .btn / .btn-primary / .btn-ghost (prominent CTAs add .lg).
-     Only inline-SVG icon sizing stays ours (DS sizes .button-arrow, not bare svg). */
-  .btn svg{width:18px;height:18px;flex:none}
+  /* Buttons use DS .button / .button.primary / .button.ghost (prominent CTAs add
+     .lg). Only inline-SVG icon sizing stays ours (DS sizes .button-arrow). */
+  .button svg{width:18px;height:18px;flex:none}
 
   /* Nav */
   header.nav{position:sticky;top:0;z-index:40;
@@ -118,24 +118,26 @@
   .band blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);
     line-height:1.25;border-left:4px solid var(--accent);padding-left:1.5rem}
   .band .sub{color:var(--ink-dim);margin-top:1.4rem}
-  /* Band pills now use DS .pill.lg.neutral (padded, rounded, sentence case);
-     only the row layout is ours. */
+  /* Band pills use DS .label-chip.pill.lg.sentence-case (padded, rounded, sentence
+     case); only the row layout is ours. */
   .pill-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
 
   /* Cards */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
   .cards.two{grid-template-columns:1fr 1fr}
   .cards.four{grid-template-columns:repeat(4,1fr)}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem;
+  /* .b-card: BEAM's bespoke feature card (tighter than DS .surface-card; named off
+     the DS .card alias so the DS namespace stays clean). */
+  .b-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem;
     transition:transform .15s var(--ease),border-color .15s}
-  .card:hover{transform:translateY(-3px);border-color:var(--line-2)}
-  .card .ic{width:42px;height:42px;border-radius:11px;background:rgba(255,69,0,.12);color:var(--accent);
+  .b-card:hover{transform:translateY(-3px);border-color:var(--line-2)}
+  .b-card .ic{width:42px;height:42px;border-radius:11px;background:rgba(255,69,0,.12);color:var(--accent);
     display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
-  .card .ic svg{width:22px;height:22px}
-  .card h3{font-size:1.18rem;font-weight:700}
-  .card p{color:var(--ink-dim);margin-top:.6rem;font-size:.98rem}
-  /* Card chips now use DS .tag.micro.outline; only the top spacing is ours. */
-  .card .tag{margin-top:1rem}
+  .b-card .ic svg{width:22px;height:22px}
+  .b-card h3{font-size:1.18rem;font-weight:700}
+  .b-card p{color:var(--ink-dim);margin-top:.6rem;font-size:.98rem}
+  /* Card chips use DS .label-chip.tag.micro.outline; only the top spacing is ours. */
+  .b-card .label-chip{margin-top:1rem}
 
   /* Comparison */
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:3rem}
@@ -158,11 +160,11 @@
   .step p{color:var(--ink-dim);margin-top:.5rem;font-size:.95rem}
 
   /* Support bento */
-  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
-  /* Tiles now use DS .bento-tile (+ .span-2 / .span-full / .highlight) and its
-     .ic chip. Our icons are outline strokes, so cancel DS's new fill:currentColor
-     (DS sizes them to 22px); everything else is DS. */
-  .bento .ic svg{fill:none}
+  .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+  /* Tiles use DS .feature-tile (+ .span-2 / .span-full / .highlight) and its
+     .feature-icon chip. Our icons are outline strokes, so cancel DS's
+     fill:currentColor (DS sizes them to 22px); everything else is DS. */
+  .bento-grid .feature-icon svg{fill:none}
 
   /* Pricing + calculator */
   .pricing-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.6rem;margin-top:3rem;align-items:stretch}
@@ -174,12 +176,12 @@
   .price .per{color:var(--ink-dim);font-size:1rem}
   .price-note{color:var(--ink-dim);margin-top:.8rem;font-size:.96rem}
   /* scoped to out-specify DS's .price-card ul (which forces display:grid) */
-  .price-card .incl{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-direction:column;gap:.8rem}
-  .incl li{display:flex;align-items:flex-start;gap:.7rem;font-size:1rem}
+  .price-card .feature-list{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-direction:column;gap:.8rem}
+  .feature-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:1rem}
   /* centre DS .feature-marker (18px box) on the first text line, matching the
      old text-tick alignment (top-aligned in a taller line otherwise sits high) */
-  .incl li .feature-marker{margin-top:.25rem}
-  .price-card .btn{margin-top:2rem;width:100%;justify-content:center}
+  .feature-list li .feature-marker{margin-top:.25rem}
+  .price-card .button{margin-top:2rem;width:100%;justify-content:center}
 
   /* Calc container now uses DS .surface-card; keep flex column so .calc-out can
      push to the bottom. Eyebrow uses DS .eyebrow; the bar uses DS .input-range. */
@@ -285,7 +287,7 @@
     .cards,.cards.four{grid-template-columns:1fr 1fr}
     .compare{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
-    .bento{grid-template-columns:repeat(2,1fr)}
+    .bento-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:960px){
     .nav-links{display:none}
@@ -300,8 +302,8 @@
     body{font-size:17px}
     .brand img{height:48px}
     .cards,.cards.two,.cards.four,.steps{grid-template-columns:1fr}
-    .bento{grid-template-columns:1fr}
-    .bento-tile.span-2,.bento-tile.span-full{grid-column:auto}
+    .bento-grid{grid-template-columns:1fr}
+    .feature-tile.span-2,.feature-tile.span-full{grid-column:auto}
     section{padding:4rem 0}
   }
   @media (prefers-reduced-motion:reduce){
