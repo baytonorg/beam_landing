@@ -14,9 +14,9 @@
 
   /* Nav */
   header.nav{position:sticky;top:0;z-index:40;background:rgba(19,17,16,.82);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
-  .nav-inner{max-width:var(--max);margin:0 auto;padding:.85rem 1.6rem;display:flex;align-items:center;gap:1rem}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:.45rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
   .brand{display:flex;align-items:center;gap:.7rem}
-  .brand img{height:26px;width:auto;display:block}
+  .brand img{height:70px;width:auto;display:block}
   .brand .by{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);border-left:1px solid var(--line-2);padding-left:.7rem}
   .nav-right{margin-left:auto;display:flex;align-items:center;gap:.4rem}
   .nav-right a.back{font-size:.92rem;color:var(--ink-dim);padding:.5rem .8rem;border-radius:9px}
@@ -33,7 +33,7 @@
   .legal{max-width:840px;margin:0 auto;padding:1rem 1.6rem 5rem}
   .intro p{margin:1.05rem 0}
   .legal p{margin:1.05rem 0}
-  .legal h2{font-size:1.5rem;font-weight:700;margin:3rem 0 1rem;padding-top:1.8rem;border-top:1px solid var(--line);scroll-margin-top:80px}
+  .legal h2{font-size:1.5rem;font-weight:700;margin:3rem 0 1rem;scroll-margin-top:80px}
   .legal h3{font-size:1.12rem;font-weight:600;color:var(--ink);margin:1.8rem 0 .6rem;scroll-margin-top:80px}
   .legal ol,.legal ul{margin:1rem 0;padding-left:1.4rem}
   .legal li{margin:.55rem 0}
@@ -72,6 +72,7 @@
 
   @media (max-width:640px){
     body{font-size:16px}
+    .brand img{height:48px}
     .nav-right a.back{display:none}
     .toc ol{columns:1}
   }
