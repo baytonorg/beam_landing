@@ -24,30 +24,19 @@
   .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-2)}
   .muted{color:var(--ink-dim)}
 
-  /* Scroll progress */
-  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent-lo),var(--accent),var(--accent-2));z-index:60;transition:width .1s linear}
+  /* Scroll progress + nav now use the DS site-header (.scroll-progress /
+     .site-header / .site-nav / .nav-toggle); BEAM overrides are below. */
 
   /* Buttons use DS .button / .button.primary / .button.ghost (prominent CTAs add
      .lg). Only inline-SVG icon sizing stays ours (DS sizes .button-arrow). */
   .button svg{width:18px;height:18px;flex:none}
 
-  /* Nav */
-  header.nav{position:sticky;top:0;z-index:40;
-    background:rgba(19,17,16,.78);backdrop-filter:blur(14px) saturate(140%);
-    border-bottom:1px solid var(--line)}
-  .nav-inner{max-width:var(--max);margin:0 auto;padding:.45rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
-  .brand{display:flex;align-items:center;gap:.7rem}
+  /* DS site-header, with BEAM overrides: align to our 1180px content width
+     (DS defaults to --maxw 1060) and keep the 70px BEAM wordmark + its breathing
+     room. Everything else (sticky blur bar, .site-nav, active underline, mobile
+     .nav-toggle disclosure, scroll-progress) is DS. */
+  .site-header-inner{max-width:var(--max);padding-block:.45rem}
   .brand img{height:70px;width:auto;display:block}
-  .brand .by{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink-faint);border-left:1px solid var(--line-2);padding-left:.7rem}
-  .nav-links{display:flex;gap:.2rem;margin-left:auto;align-items:center}
-  .nav-links a.link{position:relative;white-space:nowrap;font-size:.92rem;color:var(--ink-dim);padding:.5rem .8rem;border-radius:9px;transition:color .15s,background .15s}
-  .nav-links a.link:hover{color:var(--ink);background:var(--surface)}
-  .nav-links a.link.active{color:var(--ink)}
-  .nav-links a.link.active::after{content:"";position:absolute;left:.8rem;right:.8rem;bottom:.2rem;height:2px;background:var(--accent);border-radius:2px}
-  .nav-cta{margin-left:.5rem}
-  .menu-btn{display:none;margin-left:auto;background:transparent;border:1px solid var(--line-2);
-    color:var(--ink);border-radius:9px;padding:.5rem .7rem;cursor:pointer;font-size:1.1rem;line-height:1}
 
   /* Hero */
   .hero{position:relative;padding:5.5rem 0 4.5rem;overflow:hidden}
@@ -288,15 +277,6 @@
     .b-compare{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
     .bento-grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:960px){
-    .nav-links{display:none}
-    .menu-btn{display:block}
-    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-      align-items:stretch;gap:.2rem;background:var(--canvas-2);border-bottom:1px solid var(--line);padding:.8rem 1.6rem 1.2rem}
-    .nav-links.open a.link{padding:.7rem .4rem}
-    .nav-links.open a.link.active::after{display:none}
-    .nav-links.open .nav-cta{margin:.4rem 0 0;text-align:center}
   }
   @media (max-width:640px){
     body{font-size:17px}
