@@ -61,11 +61,14 @@
   /* Footer */
   footer{border-top:1px solid var(--line);padding:3rem 0;background:var(--canvas-2)}
   .foot-inner{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
-  .foot-inner img.wm{width:150px;height:34px;display:block}
-  .foot-links{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
+  .foot-inner svg.wm{width:150px;height:34px;display:block}
+  .foot-links{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem;color:var(--ink-dim)}
   .foot-links a{color:var(--ink-dim)}
   .foot-links a:hover{color:var(--ink);text-decoration:none}
   .foot-note{width:100%;color:var(--ink-faint);font-size:.82rem;font-family:var(--mono);letter-spacing:.02em}
+  /* animated BAYTON wordmark, shared with the homepage footer */
+  footer svg.wm g#swirl_2{transition:transform .6s var(--ease);transform-box:fill-box;transform-origin:center}
+  .foot-inner a.logo:hover svg.wm g#swirl_2{transform:rotate(360deg)}
 
   .toplink{display:inline-block;margin-top:2.5rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--ink-faint)}
   .toplink:hover{color:var(--accent-2);text-decoration:none}
