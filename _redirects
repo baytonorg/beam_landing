@@ -3,4 +3,6 @@
 /terms/        /terms/index.html             200
 /sla           /sla/index.html               200
 /sla/          /sla/index.html               200
+/privacy       /privacy/index.html           200
+/privacy/      /privacy/index.html           200
 /*             /                             301

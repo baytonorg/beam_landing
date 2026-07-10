@@ -22,12 +22,12 @@
 </head>
 <body id="top">
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" class="brand" aria-label="BEAM home">
+<header class="legal-header">
+  <div class="legal-header-inner">
+    <a href="/" class="legal-brand" aria-label="BEAM home">
       <img src="/beam-logo-light.svg" alt="BEAM">
     </a>
-    <div class="nav-right">
+    <div class="legal-header-actions">
       <a class="back" href="/">← Back to site</a>
       <a class="button primary lg" href="https://bayton.org/support/">Get started</a>
     </div>
@@ -222,6 +222,7 @@
       <a href="/#pricing">Pricing</a>
       <a href="/sla">Support &amp; SLA</a>
       <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
       <a href="https://bayton.org/support/">Support services</a>
       <a href="https://bayton.org/contact/">Contact</a>
     </nav>
@@ -242,7 +243,14 @@
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.href = '#s' + m[1];
-      a.innerHTML = '<span class="n">' + m[1] + '</span>' + m[2];
+      var n = document.createElement('span');
+      n.className = 'n';
+      n.setAttribute('aria-hidden', 'true');
+      n.textContent = m[1];
+      var label = document.createElement('span');
+      label.textContent = m[2];
+      a.appendChild(n);
+      a.appendChild(label);
       li.appendChild(a);
       frag.appendChild(li);
     });

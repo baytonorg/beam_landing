@@ -12,19 +12,20 @@
   h1,h2,h3{font-family:var(--display);color:var(--ink);line-height:1.15;margin:0;letter-spacing:-.01em}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 1.6rem}
 
-  /* Nav */
-  header.nav{position:sticky;top:0;z-index:40;background:rgba(19,17,16,.82);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
-  .nav-inner{max-width:var(--max);margin:0 auto;padding:.45rem 1.6rem;display:flex;align-items:center;gap:1.5rem}
-  .brand{display:flex;align-items:center;gap:.7rem}
-  .brand img{height:70px;width:auto;display:block}
-  .brand .by{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);border-left:1px solid var(--line-2);padding-left:.7rem}
-  .nav-right{margin-left:auto;display:flex;align-items:center;gap:.4rem}
-  .nav-right a.back{font-size:.92rem;color:var(--ink-dim);padding:.5rem .8rem;border-radius:9px}
-  .nav-right a.back:hover{color:var(--ink);background:var(--surface);text-decoration:none}
-  /* Nav CTA now uses DS .button.primary. */
+  /* Legal header: shared by legal pages, separate from the marketing site header. */
+  .legal-header{position:sticky;top:0;z-index:80;min-height:var(--navh);background:color-mix(in srgb,var(--canvas) 78%,transparent);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+  .legal-header-inner{max-width:var(--max);min-height:var(--navh);margin:0 auto;padding:0 1.6rem;display:flex;align-items:center;gap:var(--sp-4)}
+  .legal-brand{flex:none;display:inline-flex;align-items:center;min-width:0;color:var(--ink);text-decoration:none}
+  .legal-brand:hover{text-decoration:none}
+  .legal-brand img{height:70px;width:auto;display:block}
+  .legal-header-actions{margin-left:auto;display:flex;align-items:center;gap:var(--sp-1)}
+  .legal-header-actions a.back{display:inline-flex;align-items:center;min-height:40px;padding:.55rem .7rem;border-radius:var(--r-sm);color:var(--ink-dim);font-size:var(--fs-sm);font-weight:600;line-height:1.1;text-decoration:none}
+  .legal-header-actions a.back:hover{color:var(--ink);background:var(--surface);text-decoration:none}
+  /* Header CTA uses the canonical DS .button.primary.lg component. */
 
   /* Header block */
   .legal-head{padding:3.5rem 0 1.5rem;background:radial-gradient(120% 120% at 80% -20%,rgba(255,69,0,.10),transparent 55%)}
+  .legal-head .legal{padding-bottom:0}
   .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-2)}
   h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;margin:.8rem 0 .6rem}
   .updated{font-family:var(--mono);font-size:.8rem;color:var(--ink-faint);letter-spacing:.02em}
@@ -75,8 +76,8 @@
 
   @media (max-width:640px){
     body{font-size:16px}
-    .brand img{height:48px}
-    .nav-right a.back{display:none}
+    .legal-brand img{height:48px}
+    .legal-header-actions a.back{display:none}
     .toc ol{columns:1}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
