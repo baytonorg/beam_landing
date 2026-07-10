@@ -46,7 +46,7 @@
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center}
   .hero h1{font-size:clamp(2.6rem,5.6vw,4.3rem);font-weight:800;margin:1.1rem 0 0}
   .hero h1 .accent{color:var(--accent)}
-  .hero .lede{font-size:1.22rem;color:var(--ink-dim);margin-top:1.4rem;max-width:34ch}
+  .hero .text-lede{font-size:1.22rem;color:var(--ink-dim);margin-top:1.4rem;max-width:34ch}
   .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
   .hero-meta{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-top:2rem;
     font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-faint)}
